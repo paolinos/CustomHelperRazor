@@ -1,0 +1,26 @@
+﻿@using CustomHelper
+@{
+    ViewBag.Title = "DemoGrid";
+}
+
+@System.Web.Optimization.Styles.Render("~/css/controlHelper")
+
+
+@System.Web.Optimization.Scripts.Render("~/js/jquery")
+@System.Web.Optimization.Scripts.Render("~/js/base")
+
+<h2>DemoGrid</h2>
+<fieldset>
+    @Html.CustomJQGrid("list",
+                    typeof(CustomHelpersDemo.Models.Game),
+                    "/Home/GetGridList",
+                    "",
+                    new { @titles="'Name','Publisher','ReleaseDate'", 
+                          @properties = "{name:'Name',index:'Name', width:100},{name:'Publisher',index:'Publisher', width:100}, {name:'ReleaseDate',index:'ReleaseDate', width:100}",
+                          @firtSort ="Name"}
+                          )
+</fieldset>
+
+
+
+@System.Web.Optimization.Scripts.Render("~/js/controlHelper")

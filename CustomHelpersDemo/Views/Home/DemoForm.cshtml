@@ -1,0 +1,69 @@
+﻿@model CustomHelpersDemo.Models.User
+@using CustomHelper
+
+@{
+    ViewBag.Title = "DemoForm";
+
+    int saved = ViewBag.Saved ? 1 : 0;
+}
+
+<h2>DemoForm</h2>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+
+    <fieldset>
+        <div class="editor">
+            <div class="editor-label">Name: </div>
+            <div class="editor-field">
+                @Html.CustomText(m => m.Name)
+            </div>
+
+            <div class="editor-label">LastName: </div>
+            <div class="editor-field">
+                @Html.CustomText(m => m.LastName)
+            </div>
+
+            <div class="editor-label">Age: </div>
+            <div class="editor-field">
+                @Html.CustomText(m => m.Age)
+            </div>
+
+            <div class="editor-label">Email: </div>
+            <div class="editor-field">
+                @Html.CustomText(m => m.Email)
+            </div>
+
+            <div class="editor-label">Date Born: </div>
+            <div class="editor-field">
+                @Html.CustomText(m => m.DateBorn)
+            </div>
+
+            <div class="editor-label">Optional Descriptions: </div>
+            <div class="editor-field">
+                @Html.CustomTextArea(m => m.Desciption)
+            </div>
+        </div>
+
+        <input type="submit" id="btnSave" value="Save" />
+        <input type="button" id="btnEnableAjax" value="Enable Ajax">
+
+        <div id="errorServerMsg" class="validationsError danger">
+            @Html.ValidationSummary()
+        </div>
+
+    </fieldset>
+}
+
+<div id="msgResult" class="hide">
+</div>
+<script>
+    //  Get saved value from server.
+    var saved = @saved == 1 ? true : false;
+</script>
+
+@System.Web.Optimization.Scripts.Render("~/js/jquery")
+@System.Web.Optimization.Scripts.Render("~/js/base")
+
+@System.Web.Optimization.Scripts.Render("~/js/controlHelper")
+
+@System.Web.Optimization.Scripts.Render("~/js/demo-form")
