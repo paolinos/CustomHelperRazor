@@ -1,14 +1,14 @@
 CustomHelperRazor
 =================
 
-Author:
+
 =======
-Pablo Javier Cieri
+Author:Pablo Javier Cieri
 
 Developer (App, Games, Interactive Apps), Autodidact, Gamer, Geek, Asimov Fan, Technology Junkie.
 
 
-App:
+
 ====
 Custom Helpers using .net Razor engine
 
